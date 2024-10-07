@@ -30,7 +30,7 @@ export const DatePickerDemo = ({ type,date,setDate }: MyComponentProps) => {
           )}
         >
           <CalendarIcon className="mr-[10px] h-5 w-5" />
-          {date ? format(date, "PPP") : <span className="text-black" >{type}</span>}
+          {date ? format(date, "P") : <span className="text-black" >{type}</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">

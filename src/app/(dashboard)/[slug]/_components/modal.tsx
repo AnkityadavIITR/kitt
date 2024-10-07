@@ -12,11 +12,15 @@ import {
 } from "@/components/ui/dialog";
 import { Oval } from "react-loader-spinner";
 import { CircleCheck } from "lucide-react";
-import { set } from "date-fns";
 
-export function Modal() {
-  const [open, setOpen] = useState(false);
-  const [loadcnt, setLoadcnt] = useState<number>(0);
+interface ModalProps {
+  open: boolean,
+  setOpen:React.Dispatch<React.SetStateAction<boolean>>,
+  loadcnt:number,
+  setLoadcnt:React.Dispatch<React.SetStateAction<number>>
+}
+
+export function Modal({open,setOpen,loadcnt,setLoadcnt}:ModalProps) {
 
   useEffect(() => {
     setOpen(true);

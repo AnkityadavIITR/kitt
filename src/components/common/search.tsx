@@ -26,14 +26,11 @@ import { Destination } from "../../app/(dashboard)/_components/destination";
 import { FroIcon } from "../../app/(dashboard)/_components/icons";
 
 interface SearchCardProps {
-  showbadge:boolean
+  showbadge:boolean,
+  onClick:()=>void
 }
-export function SearchCard({showbadge}:SearchCardProps) {
-  const router = useRouter();
-  const handleClick = () => {
-    console.log("clicked");
-    router.push("/flight-details");
-  };
+export function SearchCard({showbadge,onClick}:SearchCardProps) {
+
   const { departure, arrival, departureDate, returnDate, setDeparture, setArrival, setDepartureDate, setReturnDate } = useFlightStore();
 
   return (
@@ -82,7 +79,7 @@ export function SearchCard({showbadge}:SearchCardProps) {
         </div>
         <Button
           className="flex justify-center gap-x-2 p-4 w-[250px] bg-[#003E39] hover:bg-[#003E39] hover:opacity-85 rounded-[8px] self-end"
-          onClick={handleClick}
+          onClick={onClick}
         >
           <Search size={20} strokeWidth={1.25} />
           <p>Search flights</p>
