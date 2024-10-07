@@ -7,10 +7,10 @@ import { SearchCard } from "../../../../components/common/search";
 import { X } from "lucide-react";
 interface NavbarProps {
   change: boolean;
-  setchange: React.Dispatch<React.SetStateAction<boolean>>;
+  setChange: React.Dispatch<React.SetStateAction<boolean>>;
   onClick: () => void;
 }
-const Navbar = ({ change, setchange, onClick }: NavbarProps) => {
+const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
   const { departure, arrival, departureDate, returnDate } = useFlightStore();
   // const date=format(departureDate,"P")
   const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
@@ -51,7 +51,7 @@ const Navbar = ({ change, setchange, onClick }: NavbarProps) => {
               <Separator orientation="vertical" />
               <div
                 className="p-2 rounded-full bg-[#E5EBEB] cursor-pointer"
-                onClick={() => setchange(true)}
+                onClick={() => setChange(true)}
               >
                 <Search size={16} />
               </div>

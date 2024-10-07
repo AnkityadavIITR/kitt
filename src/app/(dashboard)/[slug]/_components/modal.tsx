@@ -1,14 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import {  useEffect } from "react";
 import Image from "next/image";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 import { Oval } from "react-loader-spinner";
 import { CircleCheck } from "lucide-react";
@@ -17,15 +13,15 @@ interface ModalProps {
   open: boolean,
   setOpen:React.Dispatch<React.SetStateAction<boolean>>,
   loadcnt:number,
-  setLoadcnt:React.Dispatch<React.SetStateAction<number>>
+  setLoadCnt:React.Dispatch<React.SetStateAction<number>>
 }
 
-export function Modal({open,setOpen,loadcnt,setLoadcnt}:ModalProps) {
+export function Modal({open,setOpen,loadcnt,setLoadCnt}:ModalProps) {
 
   useEffect(() => {
     setOpen(true);
     const interval = setInterval(() => {
-      setLoadcnt((prevCnt: number) => {
+      setLoadCnt((prevCnt: number) => {
         console.log("call interval");
         
         if (prevCnt > 3) {
