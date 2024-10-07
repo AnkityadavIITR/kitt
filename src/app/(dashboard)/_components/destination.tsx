@@ -1,42 +1,67 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { SearchIcon } from "./icons"
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
-type Airport={
-  name:string,
-  code:string,
-  city:string,
-  country:string,
-}
+import { SearchIcon } from "./icons";
+
+type Airport = {
+  name: string;
+  code: string;
+  city: string;
+  country: string;
+};
 interface Destination {
-  des:Airport[],
-  type:string,
-  dest:Airport | undefined,
-  setDest: React.Dispatch<React.SetStateAction<Airport | undefined>> // Allow undefined
+  des: Airport[];
+  type: string;
+  dest: Airport | undefined;
+  setDest: (airport: Airport) => void;  // Fix here
 }
-export function Destination({des,type,dest,setDest }:Destination) {
+export function Destination({ des, type, dest, setDest }: Destination) {
   return (
-  <DropdownMenu>
-    <DropdownMenuTrigger className="w-[267px] flex justify-between items-center p-3 rounded-md border-[1px] border-[#E6E8EB)]" >
-      <div className="flex gap-x-[10px]">
-        <SearchIcon/>
-        <h1 className="text-[#484A4D]">{dest? (dest?.name) :(type=="departure"?"Where From?":"Where To?") }</h1>
-      </div>
-      
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className="w-[267px] p-3">
-      {
-        des.map((item,index)=>{
-          return <DropdownMenuItem onClick={()=>{setDest(item)}} key={index}>{item.name}</DropdownMenuItem>
-        })
-      }
-    </DropdownMenuContent>
-  </DropdownMenu>
-  )
+    <DropdownMenu>
+      <DropdownMenuTrigger className="w-[267px] flex justify-between items-center p-3 rounded-md border-[1px] border-[#E6E8EB)]">
+        <div className="flex gap-x-[10px]">
+          <SearchIcon />
+          {dest ? (
+            <div className="flex flex-col ">
+              <h1 className="text-[12px] text-left">
+                {type == "departure" ? "Where From?" : "Where To?"}
+              </h1>
+              <h1 className="line-clamp-1 text-left">{dest?.name}</h1>
+            </div>
+          ) : (
+            <h1 className="text-[#484A4D]">
+              {type == "departure" ? "Where From?" : "Where To?"}
+            </h1>
+          )}
+        </div>
+        <ChevronDown size={20} strokeWidth={1.25} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-[267px] p-3 max-h-[300px] overflow-y-auto">
+        {des.map((item, index) => {
+          return (
+            <DropdownMenuItem
+              onClick={() => {
+                setDest(item);
+              }}
+              key={index}
+              className="flex justify-between items-center gap-x-2"
+            >
+              <div className="">
+                <h1 className="text-[#2B2B2B] text-[14px]">{item.city}</h1>
+                <h1 className="text-[#787B80] text-[12px]">{item.country}</h1>
+              </div>
+              <h1 className="text-[14px] text-[#2B2B2B]">{item.code}</h1>
+            </DropdownMenuItem>
+          );
+        })}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
