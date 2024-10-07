@@ -1,13 +1,11 @@
-"use client"
 import React from 'react'
-import useFlightStore from '@/utils/flightstore'
 import { Modal } from './_components/modal'
+import Navbar from './_components/navbar'
 
 const page = () => {
-  const { departure, arrival, departureDate, returnDate, setDeparture, setArrival, setDepartureDate, setReturnDate } = useFlightStore()
-
   return (
     <div className='min-h-screen min-w-screen flex flex-col'>
+      <Navbar />
       <Modal />
     </div>
   )
