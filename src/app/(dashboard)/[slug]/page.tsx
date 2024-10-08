@@ -222,7 +222,7 @@ const Page = () => {
   };
 
   return (
-    <div className={openSheet || change? "min-h-screen min-w-screen flex flex-col bg-[#0000000c]":"h-screen min-w-screen flex flex-col"}>
+    <div className={openSheet || change? "min-h-screen min-w-screen flex flex-col bg-[#0000000c]":"h-auto min-w-screen flex flex-col"}>
       <Navbar change={change} setChange={setChange} onClick={handleClick} />
       {loadCnt < 4 && (
         <div className="w-full">
@@ -241,7 +241,7 @@ const Page = () => {
         className={
           change
             ? "absolute top-0 left-1/2 -translate-x-1/2 pt-[142px] px-[72px] flex flex-col "
-            : "absolute top-0 left-1/2 -translate-x-1/2 pt-[142px] px-[72px]   flex flex-col max-h-screen"
+            : "absolute top-0 left-1/2 -translate-x-1/2 pt-[142px] px-[72px]   flex flex-col"
         }
       >
         <h1 className="w-fit mb-6 text-[#787B80]">Showing 4 of 4 results</h1>
