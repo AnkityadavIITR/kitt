@@ -12,10 +12,7 @@ interface NavbarProps {
 }
 const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
   const { departure, arrival, departureDate, returnDate } = useFlightStore();
-  // const date=format(departureDate,"P")
   const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
-
-  // Ensure the date is a valid Date object before formatting
   const formattedDeparture = departureDate
     ? new Date(departureDate).toLocaleDateString('en-US', options)
     : undefined;
@@ -24,13 +21,13 @@ const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
     ? new Date(returnDate).toLocaleDateString('en-US', options)
     : undefined;
   
-  console.log(formattedDeparture);  // e.g., "Jun 25"
-  console.log(formattedReturn);  // e.g., "Jul 10"
+  console.log(formattedDeparture); 
+  console.log(formattedReturn);  
 
   if (!change) {
     return (
-      <div className="w-full flex px-[192px] py-[28px]">
-        <div className="w-full flex justify-between">
+      <div className="w-full flex px-[192px] py-[28px] z-30">
+        <div className="w-full flex justify-between items-center">
           <div className="flex px-6 py-3 border rounded-3xl">
             <div className="flex gap-x-4 items-center">
               <h1 className="line-clamp-1 w-[200px] text-[#787B80]">
@@ -57,7 +54,7 @@ const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
               </div>
             </div>
           </div>
-          <div className="border p-3">
+          <div className="border p-3 rounded-full">
             <div className=" flex items-center">
               <X strokeWidth={1.25} size={20} />
             </div>
@@ -69,7 +66,7 @@ const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
     );
   }
   return (
-    <div className="w-full flex justify-center pt-[68px] pb-[24px]">
+    <div className="w-full flex justify-center pt-[68px] pb-[24px] z-10 bg-white" >
       <SearchCard showbadge={false} onClick={onClick} />
     </div>
   );

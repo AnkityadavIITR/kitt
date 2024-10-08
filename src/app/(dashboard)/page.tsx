@@ -2,12 +2,19 @@
 import { useRouter } from "next/navigation";
 import { SearchCard } from "../../components/common/search";
 import { Card } from "@/components/ui/card";
+import { useEffect } from "react";
+import useFlightStore from "@/utils/flightstore";
 export default function Home() {
   const router = useRouter();
+  const {clearState}=useFlightStore()
   const handleClick = () => {
     console.log("clicked");
     router.push("/flight-details");
   };
+  useEffect(() => {
+    clearState();
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-4xl ">Good afternoon, Brian</h1>

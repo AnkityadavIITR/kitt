@@ -55,7 +55,10 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		  backgroundImage: {
+			'custom-gradient': 'linear-gradient(90deg, rgba(58, 104, 137, 0.50) 0%, #3A6889 45.63%, rgba(58, 104, 137, 0.50) 100%)',
+		  },
   	}
   },
   plugins: [require("tailwindcss-animate")],
