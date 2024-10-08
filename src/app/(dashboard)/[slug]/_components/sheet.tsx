@@ -99,8 +99,8 @@ const Drawer = ({ data, openSheet, setOpenSheet }: DrawerProps) => {
                   />
                 </div>
                 <h1 className="text-[14px] font-medium">
-                  {data.itinerary[1].departure.airportCode}.
-                  {data.itinerary[1].departure.airportName}
+                  {data.itinerary[1].arrival.airportCode}.
+                  {data.itinerary[1].arrival.airportName}
                 </h1>
               </div>
               <div className="flex gap-x-3">
@@ -118,8 +118,8 @@ const Drawer = ({ data, openSheet, setOpenSheet }: DrawerProps) => {
                     {data.itinerary[1].date} {data.itinerary[1].arrival.time}
                   </h1>
                   <h1 className="text-[14px] font-medium">
-                    {data.itinerary[1].arrival.airportCode}.
-                    {data.itinerary[1].arrival.airportName}
+                    {data.itinerary[1].departure.airportCode}.
+                    {data.itinerary[1].departure.airportName}
                   </h1>
                 </div>
               </div>
