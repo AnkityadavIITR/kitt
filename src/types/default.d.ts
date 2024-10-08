@@ -12,6 +12,7 @@ export interface FlightData {
 export interface Itinerary {
   airline: string;
   flightNumber: string;
+  date?:string;
   departure: FlightDetails;
   arrival: FlightDetails;
   image: string;
@@ -22,7 +23,8 @@ export interface Itinerary {
 
 export interface FlightDetails {
   time: string;
-  airport?: string;
+  airportCode?: string;
+  airportName?: string;
 }
 
 export interface FlightCardProps {

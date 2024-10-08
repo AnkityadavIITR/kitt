@@ -15,6 +15,15 @@ const Page = () => {
   const [loadCnt, setLoadCnt] = useState<number>(0);
   const {departure,arrival}=useFlightStore();
   const [openSheet, setOpenSheet] = useState<boolean>(false);
+  const { departureDate, returnDate } = useFlightStore();
+  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
+  const formattedDeparture = departureDate
+    ? new Date(departureDate).toLocaleDateString('en-US', options)
+    : undefined;
+  
+  const formattedReturn = returnDate
+    ? new Date(returnDate).toLocaleDateString('en-US', options)
+    : undefined;
 
   const flightData = [
     {
@@ -23,13 +32,16 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4354",
+          date: formattedDeparture,
           departure: {
             time: "9:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           arrival: {
             time: "11:45 AM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           duration: "2h 10min",
           stops: "Non stop",
@@ -38,13 +50,16 @@ const Page = () => {
           airline: "Lufthansa",
           image:"/images/ai2.png",
           flightNumber: "AT 4334",
+          date: formattedReturn,
           departure: {
             time: "11:45 PM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           arrival: {
             time: "6:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           duration: "4h 10min",
           stops: "2 stops",
@@ -60,13 +75,16 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4354",
+          date:formattedDeparture,
           departure: {
             time: "9:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           arrival: {
             time: "11:45 AM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           duration: "7h 10min",
           stops: "1 stop",
@@ -75,13 +93,16 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4334",
+          date:formattedReturn,
           departure: {
             time: "11:45 PM",
-            airport:arrival?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           arrival: {
             time: "6:45 AM",
-            airport:departure?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           duration: "19h 10min",
           stops: "1 stop",
@@ -97,13 +118,17 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4354",
+          date:formattedDeparture,
           departure: {
             time: "9:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           arrival: {
             time: "11:45 AM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
+
           },
           duration: "2h 10min",
           stops: "Non stop",
@@ -112,13 +137,16 @@ const Page = () => {
           airline: "Lufthansa",
           image:"/images/ai2.png",
           flightNumber: "AT 4334",
+          date:formattedReturn,
           departure: {
             time: "11:45 PM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           arrival: {
             time: "6:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           duration: "4h 10min",
           stops: "2 stops",
@@ -134,13 +162,16 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4354",
+          date:formattedDeparture,
           departure: {
             time: "9:45 AM",
-            airport:departure?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
           },
           arrival: {
             time: "11:45 AM",
-            airport:arrival?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           duration: "7h 10min",
           stops: "1 stop",
@@ -149,13 +180,17 @@ const Page = () => {
           airline: "Emirates",
           image:"/images/ai1.png",
           flightNumber: "AT 4334",
+          date:formattedReturn,
           departure: {
             time: "11:45 PM",
-            airport:arrival?.code,
+            airportCode:departure?.code,
+            airportName:departure?.name,
+
           },
           arrival: {
             time: "6:45 AM",
-            airport:departure?.code,
+            airportCode:arrival?.code,
+            airportName:arrival?.name,
           },
           duration: "19h 10min",
           stops: "1 stop",
@@ -211,7 +246,7 @@ const Page = () => {
       >
         <h1 className="w-fit mb-6 text-[#787B80]">Showing 356 of 767 results</h1>
         <ScrollArea className="flex flex-col gap-y-4">
-          {flightData.map((data: FlightData, i: number) => {
+          {flightData.map((data:FlightData,i: number) => {
             return (
               <Flightcard
                 key={i}
