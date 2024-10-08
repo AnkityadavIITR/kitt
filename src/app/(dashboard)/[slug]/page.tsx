@@ -5,7 +5,6 @@ import { Modal } from "./_components/modal";
 import Navbar from "./_components/navbar";
 import { Progress } from "@/components/ui/progress";
 import Flightcard from "./_components/flightcard";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import useFlightStore from "@/utils/flightstore";
 import { FlightData } from "@/types/default";
 

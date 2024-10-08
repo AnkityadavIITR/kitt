@@ -1,5 +1,5 @@
 "use client";
-import { SetStateAction, useState } from "react";
+// import { SetStateAction, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
 import Image from "next/image";
@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Drawer from "./sheet";
 import { FlightCardProps } from "@/types/default";
-import useFlightStore from "@/utils/flightstore";
+// import useFlightStore from "@/utils/flightstore";
 
 const Flightcard = ({
   open,
@@ -17,7 +17,7 @@ const Flightcard = ({
   setOpenSheet,
 }: FlightCardProps) => {
   // console.log(open);
-  const [sheetIndex, setSheetIndex] = useState<number>(0);
+  // const [sheetIndex, setSheetIndex] = useState<number>(0);
 
   if (!open) {
     return (
@@ -102,7 +102,7 @@ const Flightcard = ({
 
             <Button
               onClick={() => {
-                setSheetIndex(index);
+                // setSheetIndex(index);
                 setOpenSheet(true);
               }}
               className="flex justify-center mt-auto gap-x-2 p-4 text-[16px] w-[182px] bg-[#003E39] hover:bg-[#003E39] hover:opacity-85 rounded-[8px] self-end"
