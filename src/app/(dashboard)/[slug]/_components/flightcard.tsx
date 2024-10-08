@@ -6,36 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Drawer from "./sheet";
-
-export interface FlightData {
-  itinerary: Itinerary[];
-  price: number;
-  currency: string;
-}
-
-interface Itinerary {
-  airline: string;
-  flightNumber: string;
-  departure: FlightDetails;
-  arrival: FlightDetails;
-  image: string;
-  duration: string;
-  stops: string;
-  additionalInfo?: string;
-}
-
-interface FlightDetails {
-  time: string;
-  airport?: string;
-}
-
-interface FlightCardProps {
-  open: boolean;
-  index: number;
-  openSheet: boolean;
-  setOpenSheet: React.Dispatch<SetStateAction<boolean>>;
-  data: FlightData; // Single object instead of array
-}
+import { FlightCardProps } from "@/types/default";
 
 const Flightcard = ({
   open,

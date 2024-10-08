@@ -1,20 +1,15 @@
-import React, { SetStateAction, useState } from "react";
+import React, { SetStateAction} from "react";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
-import { FlightData } from "./flightcard";
 import { Separator } from "@/components/ui/separator";
+import { DrawerProps } from "@/types/default";
 
-interface DrawerProps{
-    data:FlightData,
-    openSheet:boolean,
-    setOpenSheet:React.Dispatch<SetStateAction<boolean>>
-}
+
 const Drawer = ({data,openSheet,setOpenSheet}:DrawerProps) => {
   return (
     <Sheet open={openSheet} onOpenChange={setOpenSheet}>

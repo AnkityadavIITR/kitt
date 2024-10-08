@@ -12,13 +12,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { CalendarProps } from "@/types/default"
 
-interface MyComponentProps {
-  type: string,
-  date:Date | undefined,
-  setDate: React.Dispatch<React.SetStateAction<Date | undefined>> // Allow undefined
-}
-export const DatePickerDemo = ({ type,date,setDate }: MyComponentProps) => {
+export const DatePickerDemo = ({ type,date,setDate }: CalendarProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>

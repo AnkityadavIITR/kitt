@@ -8,14 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Oval } from "react-loader-spinner";
 import { CircleCheck } from "lucide-react";
-
-interface ModalProps {
-  open: boolean,
-  setOpen:React.Dispatch<React.SetStateAction<boolean>>,
-  loadcnt:number,
-  setLoadCnt:React.Dispatch<React.SetStateAction<number>>
-}
-
+import { ModalProps } from "@/types/default";
 export function Modal({open,setOpen,loadcnt,setLoadCnt}:ModalProps) {
 
   useEffect(() => {

@@ -6,8 +6,8 @@ import Navbar from "./_components/navbar";
 import { Progress } from "@/components/ui/progress";
 import Flightcard from "./_components/flightcard";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { FlightData } from "./_components/flightcard";
 import useFlightStore from "@/utils/flightstore";
+import { FlightData } from "@/types/default";
 
 const Page = () => {
   const [change, setChange] = useState<boolean>(false);

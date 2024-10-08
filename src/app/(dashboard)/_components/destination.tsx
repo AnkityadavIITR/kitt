@@ -9,20 +9,9 @@ import {
 import { ChevronDown } from "lucide-react";
 
 import { SearchIcon } from "./icons";
+import { DestinationProps } from "@/types/default";
 
-type Airport = {
-  name: string;
-  code: string;
-  city: string;
-  country: string;
-};
-interface Destination {
-  des: Airport[];
-  type: string;
-  dest: Airport | undefined;
-  setDest: (airport: Airport) => void;  // Fix here
-}
-export function Destination({ des, type, dest, setDest }: Destination) {
+export function Destination({ des, type, dest, setDest }: DestinationProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="w-[267px] flex justify-between items-center p-3 rounded-md border-[1px] border-[#E6E8EB)]">
