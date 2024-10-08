@@ -46,7 +46,6 @@ const useFlightStore = create<flightStoreState>()(
       returnDate: undefined,
       setDeparture: (departure) => set({ departure }),
       setArrival: (arrival) => set({ arrival }),
-      // Setters for Dates (departureDate and returnDate)
       setDepartureDate: (date) =>
         set((state) => ({
           departureDate:

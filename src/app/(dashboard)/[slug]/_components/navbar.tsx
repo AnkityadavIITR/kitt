@@ -26,7 +26,7 @@ const Navbar = ({ change, setChange, onClick }: NavbarProps) => {
 
   if (!change) {
     return (
-      <div className="w-full flex px-[192px] py-[28px] z-30">
+      <div className="w-full flex px-[192px] py-[28px] z-30 border-b-2 ">
         <div className="w-full flex justify-between items-center">
           <div className="flex px-6 py-3 border rounded-3xl">
             <div className="flex gap-x-4 items-center">
