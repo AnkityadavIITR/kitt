@@ -29,7 +29,6 @@ export interface FlightDetails {
 
 export interface FlightCardProps {
   open: boolean;
-  index: number;
   openSheet: boolean;
   setOpenSheet: React.Dispatch<SetStateAction<boolean>>;
   data: FlightData; // Single object instead of array

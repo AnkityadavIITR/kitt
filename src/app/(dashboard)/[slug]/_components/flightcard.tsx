@@ -12,7 +12,6 @@ import { FlightCardProps } from "@/types/default";
 const Flightcard = ({
   open,
   data,
-  index,
   openSheet,
   setOpenSheet,
 }: FlightCardProps) => {

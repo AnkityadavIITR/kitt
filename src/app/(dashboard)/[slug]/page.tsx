@@ -250,7 +250,6 @@ const Page = () => {
               <Flightcard
                 key={i}
                 data={data}
-                index={i}
                 open={open}
                 openSheet={openSheet}
                 setOpenSheet={setOpenSheet}
