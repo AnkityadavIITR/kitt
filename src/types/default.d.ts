@@ -43,6 +43,7 @@ export interface ModalProps {
 export interface CalendarProps {
   type: string;
   date: Date | undefined;
+minDate?: Date | undefined;
   setDate: React.Dispatch<React.SetStateAction<Date | undefined>>; // Allow undefined
 }
 

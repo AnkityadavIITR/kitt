@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover"
 import { CalendarProps } from "@/types/default"
 
-export const DatePickerDemo = ({ type,date,setDate }: CalendarProps) => {
+export const DatePickerDemo = ({ type,date,setDate,minDate }: CalendarProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -34,6 +34,7 @@ export const DatePickerDemo = ({ type,date,setDate }: CalendarProps) => {
           mode="single"
           selected={date}
           onSelect={setDate}
+          fromDate={minDate}
           initialFocus
         />
       </PopoverContent>

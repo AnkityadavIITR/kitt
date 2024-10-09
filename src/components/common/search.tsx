@@ -4,8 +4,8 @@ import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 
-import { useRouter } from "next/navigation";
 import useFlightStore from "@/utils/flightstore";
+import { useState } from "react";
 
 export type Airport = {
   name: string;
@@ -32,7 +32,8 @@ interface SearchCardProps {
 export function SearchCard({showbadge,onClick}:SearchCardProps) {
 
   const { departure, arrival, departureDate, returnDate, setDeparture, setArrival, setDepartureDate, setReturnDate } = useFlightStore();
-
+  const minDate: Date = new Date();
+  const [calendarOpen, setCalendarOpen] = useState(false)
   return (
     
       <div className="flex flex-col gap-y-6 ">
@@ -69,11 +70,13 @@ export function SearchCard({showbadge,onClick}:SearchCardProps) {
               type={"Departure"}
               date={departureDate}
               setDate={setDepartureDate}
+              minDate={minDate}
             />
             <DatePickerDemo
               type={"Return"}
               date={returnDate}
               setDate={setReturnDate}
+              minDate={departureDate}
             />
           </div>
         </div>

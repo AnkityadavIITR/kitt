@@ -18,6 +18,7 @@ const Flightcard = ({
   // console.log(open);
   // const [sheetIndex, setSheetIndex] = useState<number>(0);
 
+
   if (!open) {
     return (
       <div className="rounded-md shadow-sm border flex w-[1056px] h-[184px] mb-6">
